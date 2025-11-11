@@ -1,0 +1,96 @@
+3a
+
+#include <iostream>
+using namespace std;
+
+class Book {
+    string book_title;
+    string author_name;
+    float price;
+
+public:
+    void accept() {
+        cout << "Enter Book Title: ";
+        cin >> book_title;
+        cout << "Enter Author Name: ";
+        cin >> author_name;
+        cout << "Enter Price: ";
+        cin >> price;
+    }
+
+    void display() {
+        cout << "Title: " << book_title << endl;
+        cout << "Author: " << author_name << endl;
+        cout << "Price: " << price << endl;
+    }
+};
+
+int main() {
+    Book b;         
+    Book *ptr;      
+    ptr = &b;       
+    cout << "Enter details of the book:\n";
+    ptr->accept();   
+    ptr->display();  
+
+    return 0;
+}
+
+3b
+
+#include <iostream>
+using namespace std;
+
+class Student {
+    int roll_no;
+    float percentage;
+
+public:
+    void accept(){
+        cout<<"Enter Roll Number :";
+      cin>>this->roll_no;
+      cout<<"Enter Percentage :";
+      cin>>this->percentage;
+    }
+
+    void display() {
+        cout << "Roll No: " << this->roll_no << endl;      
+        cout << "Percentage: " << this->percentage << "%" << endl;
+    }
+};
+
+int main() {
+    Student s;
+  s.accept();
+  s.display();
+    return 0;
+}
+
+3c
+
+#include<iostream>
+using namespace std;
+class Student{
+public:
+int m1,m2,m3;
+void input()
+{
+  cout<<"Enter marks for 3 subjects :";
+cin>>m1>>m2>>m3;
+}
+float percentage()
+{
+  int total=m1+m2+m3;
+return total/3.0;
+}
+};
+};
+int main()
+{
+  Student::Marks marks;
+marks.input();
+float percentage =marks.percentage();
+cout<<"Percentage :"<<percentage<<endl;
+return 0;
+}
+
