@@ -1,0 +1,124 @@
+5a
+
+#include<iostream>
+using namespace std;
+class sum{
+    int n=10;
+    int result=0;
+
+public:
+sum()
+{
+    for(int i=1;i<n;i++)
+    result +=i;
+}
+void display()
+{
+    cout<<"\n Sum of Numbers from 1 to n is :"<<result<<endl;
+}
+};
+int main()
+{
+    sum s;
+    s.display();
+    return 0;
+}
+
+
+5b
+
+#include<iostream>
+using namespace std;
+class student{
+    float per;
+    string name;
+    public:
+student(float p, string n )
+{
+    per=p;
+    name =n;
+}
+void display()
+{
+    cout<<"\n Percentage :"<<per<<endl;
+    cout<<"\n Name :"<<name;
+}
+};
+int main()
+{
+    student s1(99,"abc");
+    s1.display();
+    return 0;
+}
+
+5c
+
+
+#include<iostream>
+using namespace std;
+
+class College
+{
+	public:
+		string name1,name2;
+		string course;
+		int roll1,roll2;
+		
+		College()
+        {
+        	course="computer Engineering";
+        	name1="Aryan";
+        	roll1=79;
+        	name2="tanna";
+        	roll2=23;
+        	
+				}		
+};
+
+int main()
+{
+
+        College c1;
+        College c2;
+        cout<<"name of course: "<<c1.course<<endl;
+        cout<<"name of the student: "<<c1.name1<<endl;
+        cout<<"roll no of the student: "<<c1.roll1<<endl;
+        
+        cout<<"name of course: "<<c2.course<<endl;
+        cout<<"name of the student: "<<c2.name2<<endl;
+        cout<<"roll no of the student: "<<c2.roll2<<endl;
+        
+        return 0;
+        
+    }
+
+5d
+#include<iostream>
+using namespace std;
+class number{
+    int x,y;
+    public:
+    number(int a)
+    {
+        x=a;
+        y=0;
+    }
+    number(int a,int b)
+    {
+        x=a;
+        y=b;
+    }
+    void display()
+    {
+        cout<<"X="<<x<<endl;
+        cout<<"Y="<<y<<endl;
+    }
+};
+int main()
+{
+    number n1(50);
+    number n2(10,20);
+    n1.display();
+    n2.display();
+    return 0;
+}
