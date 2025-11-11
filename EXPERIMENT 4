@@ -1,0 +1,99 @@
+4a
+
+#include <iostream>
+using namespace std;
+
+class Result1 {
+public:
+    int m;
+    void get() { cin >> m; }
+};
+
+class Result2 {
+public:
+    int m;
+    void get() { cin >> m; }
+};
+
+float avg(Result1 a, Result2 b) {
+    return (a.m + b.m) / 2.0;
+}
+
+int main() {
+    Result1 r1;
+    Result2 r2;
+    r1.get();
+    r2.get();
+    cout << avg(r1, r2);
+}
+
+
+4b
+
+#include <iostream>
+using namespace std;
+
+class Number {
+    int value;
+
+public:
+    void accept() {
+        cout << "Enter a number: ";
+        cin >> value;
+    }
+
+    void display() {
+        cout << value << endl;
+    }
+    friend void swap(Number &x, Number &y);
+};
+void swap(Number &n1, Number &n2) {
+    int temp = x.value;
+    x.value = y.value;
+    y.value = temp;
+}
+
+int main() {
+    Number n1, n2;
+
+    cout << "Enter value for first object:\n";
+    n1.accept();
+    cout << "Enter value for second object:\n";
+    n2.accept();
+
+  
+    swap(n1, n2);
+
+    cout << "\nAfter Swapping:\n";
+    cout << "First number: "; n1.display();
+    cout << "Second number: "; n2.display();
+
+    return 0;
+}
+
+
+4c
+
+#include <iostream>
+using namespace std;
+
+class Sample {
+    int v;
+public:
+    Sample(int x = 0) { v = x; }
+    friend void swapv(Sample&, Sample&);
+    void show() { cout << v << " "; }
+};
+
+void swapv(Sample& a, Sample& b) {
+    int t = a.v;
+    a.v = b.v;
+    b.v = t;
+}
+
+int main() {
+    Sample s1(5), s2(10);
+    swapv(s1, s2);
+    s1.show();
+    s2.show();
+}
