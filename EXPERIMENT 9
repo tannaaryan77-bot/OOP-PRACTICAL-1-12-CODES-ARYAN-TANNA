@@ -1,0 +1,119 @@
+9a
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    fstream new_file;
+    new_file.open("new_file.txt", ios::out); // Open file in output mode (creates if not exists)
+
+    if (!new_file) {
+        cout << "File creation failed!" << endl;
+    } else {
+        cout << "New file created" << endl;
+        new_file.close(); // Close the file
+    }
+
+    return 0;
+}
+
+
+9b
+
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main() {
+    ofstream file1("file1.txt", ios::app);  
+    if (!file1) {
+        cout << "Error opening file1.txt" << endl;
+        return 1;
+    }
+
+    file1 << "Welcome to MIT" << endl;
+    file1.close();
+
+    ifstream file1_read("file1.txt");
+    ofstream file2("file2.txt");
+
+    if (!file1_read) {
+        cout << "Error opening file1.txt for reading" << endl;
+        return 1;
+    }
+
+    if (!file2) {
+        cout << "Error opening file2.txt for writing" << endl;
+        return 1;
+    }
+
+    char ch;
+    while (file1_read.get(ch)) {
+        file2.put(ch);
+    }
+
+    cout << "Content copied successfully from file1.txt to file2.txt" << endl;
+
+    file1_read.close();
+    file2.close();
+
+    return 0;
+}
+
+9c
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    ifstream inputfile ("input.txt");
+
+    if (!inputfile)
+    {
+        cout << "cannot open input.txt!" << endl;
+        return 1;
+    }
+
+    char ch;
+    int spacecount = 0;
+    int digitcount = 0;
+
+    while (inputfile.get(ch))
+    {
+        if (ch == ' ')
+            spacecount++;
+        else if (isdigit(ch))
+            digitcount++;
+    }
+
+    inputfile.close();
+
+    cout << "Total spaces : " << spacecount << endl;
+    cout << "Total digits : " << digitcount << endl;
+
+    return 0;
+}
+
+
+9d
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    ifstream f("file.txt");
+    string w, find;
+    int count = 0;
+    cin >> find;
+    while (f >> w) {
+        if (w == find)
+            count++;
+    }
+    cout << count;
+}
