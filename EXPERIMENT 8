@@ -1,0 +1,61 @@
+
+8a
+
+#include <iostream>
+using namespace std;
+class addstring {
+public:
+    string str;
+    addstring (string s) {
+        str = s;
+    }
+    addstring operator + (addstring obj) {
+        return addstring (str + obj.str);
+    }
+    void display() {
+        cout << str << endl;
+    }
+};
+int main() {
+    addstring S1 ("XYZ");
+    addstring S2 ("PQR");
+    addstring S3 = S1 + S2;
+    cout << "concatenated string: " << S3.str << endl;
+    return 0;
+}
+
+8b
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class ILogin {
+protected:
+    string name, pwd;
+public:
+    virtual void accept() {
+        cin >> name >> pwd;
+    }
+};
+
+class EmailLogin : public ILogin {
+public:
+    void accept() {
+        cin >> name >> pwd;
+    }
+};
+
+class MemberLogin : public ILogin {
+public:
+    void accept() {
+        cin >> name >> pwd;
+    }
+};
+
+int main() {
+    EmailLogin e;
+    MemberLogin m;
+    e.accept();
+    m.accept();
+}
