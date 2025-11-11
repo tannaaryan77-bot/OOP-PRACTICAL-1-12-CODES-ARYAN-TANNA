@@ -1,0 +1,109 @@
+2a
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class City {
+public:
+    string name;
+    long population;
+    void accept() {
+        getline(cin, name);
+        cin >> population;
+        cin.ignore();
+    }
+};
+
+int main() {
+    City c[5];
+    for (int i = 0; i < 5; i++) c[i].accept();
+    int idx = 0;
+    for (int i = 1; i < 5; i++) if (c[i].population > c[idx].population) idx = i;
+    cout << c[idx].name;
+}
+
+
+2b
+
+#include <iostream>
+using namespace std;
+
+class Account {
+    int acc_no;
+    float balance;
+
+public:
+    void getData() {
+        cout << "Enter Account Number: ";
+        cin >> acc_no;
+        cout << "Enter Balance: ";
+        cin >> balance;
+    }
+
+    void Interest() {
+        {
+            balance = balance + (balance * 0.10);  // adding 10% interest
+        }
+
+    void display() {
+        cout << "Account No: " << acc_no << ", Balance: " << balance << endl;
+    }
+};
+
+int main() {
+    Account a[10];
+
+    cout << "Enter details of 10 accounts:\n";
+    for (int i = 0; i < 10; i++) {
+        cout << "\nAccount " << i + 1 << ":\n";
+        a[i].getData();
+    }
+
+    cout << "\nAccounts with Balance >= 5000 (after adding 10% interest):\n";
+    for (int i = 0; i < 10; i++) {
+        if (a[i].Balance() >= 5000) {
+            a[i].addInterest();
+            a[i].display();
+        }
+    }
+
+    return 0;
+}
+
+2c
+
+#include <iostream>
+using namespace std;
+
+class Staff {
+    string name;
+    string post;
+
+public:
+    void getData() {
+        cout << "Enter Staff Name: ";
+        cin >> name;
+        cout << "Enter Post: ";
+        cin >> post;
+    }
+};
+
+int main() {
+    Staff s[5];
+
+    cout << "Enter details of 5 staff members:\n";
+    for (int i = 0; i < 5; i++) {
+        cout << "\nStaff " << i + 1 << ":\n";
+        s[i].getData();
+    }
+
+    cout << "\nStaff members who are HOD:\n";
+    for (int i = 0; i < 5; i++) {
+        if (s[i].post() == "HOD" || s[i].post() == "hod" ) {
+            cout << "Staff Name: " << s[i].Name() << endl;
+        }
+    }
+
+    return 0;
+}
